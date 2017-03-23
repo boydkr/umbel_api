@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  resources :profiles do
+    post 'add_brand', on: :member
+    post 'remove_brand', on: :member
+  end
+
+  resources :brands
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
