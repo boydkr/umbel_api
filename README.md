@@ -14,9 +14,9 @@ The user should be able to add profiles, edit profiles' brand affinities, return
 
   This app was creating with `Ruby 2.1.8` and `Rails 4.2.7.1`
 
-* System dependencies
-
 * Configuration
+
+  `bundle install`
 
 * Database initialization
 
@@ -206,6 +206,7 @@ The user should be able to add profiles, edit profiles' brand affinities, return
   * GET `/profiles`
 
     `curl --request GET --url https://lit-island-55420.herokuapp.com/profiles`
+
     `curl --request GET --url https://lit-island-55420.herokuapp.com/profiles?brand=1`
 
   * POST `/profiles`
