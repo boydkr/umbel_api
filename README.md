@@ -30,7 +30,7 @@ The user should be able to add profiles, edit profiles' brand affinities, return
 
 * Deployment
 
-  A test deployment is available at `https://lit-island-55420.herokuapp.com/`a
+  A test deployment is available at `https://lit-island-55420.herokuapp.com/`
 
   When running locally for development use `http://localhost:<port>/` in place of the `url`
 
