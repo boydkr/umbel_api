@@ -97,7 +97,7 @@ RSpec.describe "Profiles", type: :request do
     subject! { post add_brand_profile_path(profile1), {brand: brand2.id} }
 
     it 'responds with 204' do
-      expect(response).to have_http_status(204)
+      expect(response).to have_http_status(200)
     end
 
     it 'expects the profile to include the brand' do
@@ -109,7 +109,7 @@ RSpec.describe "Profiles", type: :request do
     subject! { post remove_brand_profile_path(profile2), {brand: brand2.id} }
 
     it 'responds with 204' do
-      expect(response).to have_http_status(204)
+      expect(response).to have_http_status(200)
     end
 
     it 'expects the profile to include the brand' do

@@ -43,7 +43,7 @@ class ProfilesController < ApplicationController
   def add_brand
     if profile and brand
       profile.brands << brand
-      render json: {}, status: 204
+      render json: profile, status: 200
     else
       render json: {}, status: 403
     end
@@ -52,7 +52,7 @@ class ProfilesController < ApplicationController
   def remove_brand
     if profile and brand
       profile.brands.delete(brand)
-      render json: {}, status: 204
+      render json: profile, status: 200
     else
       render json: {}, status: 403
     end

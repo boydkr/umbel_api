@@ -38,25 +38,26 @@ The user should be able to add profiles, edit profiles' brand affinities, return
 
 * `GET /profiles?brand=:brand_id`
 
-  Example Result
-  ```
-  {
-    "profiles": [
-      {
-        "id": 1,
-        "name": "Kyle",
-        "brand_ids": []
-      },
-      {
-        "id": 2,
-        "name": "Umbel",
-        "brand_ids": [
-          3
-        ]
-      }
-    ]
-  }
-  ```
+  * Example Result
+
+    ```
+    {
+      "profiles": [
+        {
+          "id": 1,
+          "name": "Kyle",
+          "brand_ids": []
+        },
+        {
+          "id": 2,
+          "name": "Umbel",
+          "brand_ids": [
+            3
+          ]
+        }
+      ]
+    }
+    ```
 
 * `POST /profiles`
 
@@ -140,6 +141,8 @@ The user should be able to add profiles, edit profiles' brand affinities, return
     }
     ```
 
+* `DEL /profiles/:id`
+
 * `GET /brands?ids[]=:brand_id`
 
   * Example Result
@@ -176,11 +179,26 @@ The user should be able to add profiles, edit profiles' brand affinities, return
     ```
     {
       "brand": {
-        "id": 4,
-        "name": "Redsox"
+        "id": 3,
+        "name": "Pacers"
       }
     }
     ```
+
+* `GET /brands/:id`
+
+  * Example Result
+
+    ```
+    {
+      "brand": {
+        "id": 1,
+        "name": "Vikings"
+      }
+    }
+    ```
+
+* `DEL /brands/:id`
 
 
 * cURL Examples
@@ -190,7 +208,7 @@ The user should be able to add profiles, edit profiles' brand affinities, return
     `curl --request GET --url https://lit-island-55420.herokuapp.com/profiles`
     `curl --request GET --url https://lit-island-55420.herokuapp.com/profiles?brand=1`
 
-  * POST `/profiles'
+  * POST `/profiles`
 
     ```
       curl --request POST \
@@ -199,7 +217,7 @@ The user should be able to add profiles, edit profiles' brand affinities, return
       --data '{\n  "profile": {\n    "name": "Umbel"\n  }\n}'
     ```
 
-  * GET '/profiles/:id'
+  * GET `/profiles/:id`
 
     `curl --request GET --url https://lit-island-55420.herokuapp.com/profiles/1`
 
@@ -224,6 +242,7 @@ The user should be able to add profiles, edit profiles' brand affinities, return
   * GET `/brands`
 
     `curl --request GET --url https://lit-island-55420.herokuapp.com/brands`
+
     `curl --request GET --url https://lit-island-55420.herokuapp.com/brands?ids[]=1&ids[]=2`
 
   * POST `/brands`
