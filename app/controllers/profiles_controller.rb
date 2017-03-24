@@ -31,6 +31,15 @@ class ProfilesController < ApplicationController
     end
   end
 
+  def destroy
+    if profile
+      profile.destroy
+      render json: {}, status: 204
+    else
+      render json: {}, status: 404
+    end
+  end
+
   def add_brand
     if profile and brand
       profile.brands << brand
@@ -65,7 +74,8 @@ class ProfilesController < ApplicationController
   end
 
   def get_params
-    params.permit(:name)
+    puts params
+    params[:profile].permit(:name)
   end
 
   def brand

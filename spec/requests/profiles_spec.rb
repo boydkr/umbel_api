@@ -24,11 +24,11 @@ RSpec.describe "Profiles", type: :request do
       end
 
       it 'has the root key' do
-        expect(json).to include('data')
+        expect(json).to include('profiles')
       end
 
       it 'includes the existing profiles' do
-        profiles = json['data']
+        profiles = json['profiles']
 
         expect(profiles.length).to eq(2)
 
@@ -47,11 +47,11 @@ RSpec.describe "Profiles", type: :request do
       end
 
       it 'has the root key' do
-        expect(json).to include('data')
+        expect(json).to include('profiles')
       end
 
       it 'includes the matching profile' do
-        profiles = json['data']
+        profiles = json['profiles']
 
         expect(profiles.length).to eq(1)
 
@@ -62,18 +62,18 @@ RSpec.describe "Profiles", type: :request do
   end
 
   describe 'POST /profiles' do
-    subject! { post profiles_path(), {name: 'new_profile'} }
+    subject! { post profiles_path(), { profile: {name: 'new_profile'}} }
 
     it 'responds with 201' do
       expect(response).to have_http_status(201)
     end
 
     it 'has an assigned id' do
-      expect(json['data']).to include('id')
+      expect(json['profile']).to include('id')
     end
 
     it 'has the given name' do
-      expect(json['data']['attributes']['name']).to eq('new_profile')
+      expect(json['profile']['name']).to eq('new_profile')
     end
 
     it 'expects another profile to exist' do
@@ -82,7 +82,7 @@ RSpec.describe "Profiles", type: :request do
   end
 
   describe 'PUT /profiles/1' do
-    subject! { put profile_path(profile1), {name: 'new_name'} }
+    subject! { put profile_path(profile1), { profile: {name: 'new_name'}} }
 
     it 'responds with 204' do
       expect(response).to have_http_status(204)
