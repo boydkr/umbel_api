@@ -18,7 +18,7 @@ class ProfilesController < ApplicationController
     if profile.save
       render json: profile, status: 201
     else
-      render json: {}, status: 403
+      render json: {}, status: 422
     end
   end
 
@@ -27,7 +27,7 @@ class ProfilesController < ApplicationController
     if profile.save
       render json: {}, status: 204
     else
-      render json: {}, status: 403
+      render json: {}, status: 422
     end
   end
 
@@ -45,7 +45,7 @@ class ProfilesController < ApplicationController
       profile.brands << brand
       render json: profile, status: 200
     else
-      render json: {}, status: 403
+      render json: {}, status: 422
     end
   end
 
@@ -54,7 +54,7 @@ class ProfilesController < ApplicationController
       profile.brands.delete(brand)
       render json: profile, status: 200
     else
-      render json: {}, status: 403
+      render json: {}, status: 422
     end
   end
 
