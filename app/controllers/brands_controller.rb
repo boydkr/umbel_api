@@ -18,7 +18,7 @@ class BrandsController < ApplicationController
     if brand.save
       render json: brand, status: 201
     else
-      render json: {}, status: 403
+      render json: {}, status: 422
     end
   end
 
@@ -27,7 +27,7 @@ class BrandsController < ApplicationController
     if brand.save
       render json: {}, status: 204
     else
-      render json: {}, status: 403
+      render json: {}, status: 422
     end
   end
 
@@ -36,7 +36,7 @@ class BrandsController < ApplicationController
       brand.destroy
       render json: {}, status: 204
     else
-      render json: {}, status: 404
+      render json: {}, status: 400
     end
   end
 
